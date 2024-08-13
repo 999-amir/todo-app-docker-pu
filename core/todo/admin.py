@@ -10,21 +10,12 @@ class TodoInline(admin.TabularInline):
 
 @admin.register(TodoModel)
 class TodoAdmin(admin.ModelAdmin):
-    list_display = ('profile', 'level', 'is_done', 'created', 'dead_end')
-    list_filter = ('is_done',)
+    list_display = ("profile", "level", "is_done", "created", "dead_end")
+    list_filter = ("is_done",)
     fieldsets = (
-        (
-            'USER',
-            {'fields': ('profile',)}
-        ),
-        (
-            'TASK',
-            {'fields': ('level', 'is_done', 'job')}
-        ),
-        (
-            'DATE',
-            {'fields': ('dead_end', 'updated', 'created')}
-        ),
+        ("USER", {"fields": ("profile",)}),
+        ("TASK", {"fields": ("level", "is_done", "job")}),
+        ("DATE", {"fields": ("dead_end", "updated", "created")}),
     )
-    readonly_fields = ('updated', 'created')
-    ordering = ('dead_end', 'created')
+    readonly_fields = ("updated", "created")
+    ordering = ("dead_end", "created")

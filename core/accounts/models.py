@@ -10,7 +10,7 @@ class CostumeUser(AbstractBaseUser):
     is_verify = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
     objects = CostumeUserManager()
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
     created = models.DateTimeField(auto_now_add=True)
@@ -41,4 +41,4 @@ class ProfileModel(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.f_name} - {self.l_name}'
+        return f"{self.f_name} - {self.l_name}"

@@ -9,21 +9,46 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('accounts', '0003_alter_profilemodel_description'),
+        ("accounts", "0003_alter_profilemodel_description"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='TodoModel',
+            name="TodoModel",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('level', models.CharField(choices=[('easy', 'green'), ('medium', 'amber'), ('hard', 'red')], default='easy', max_length=10)),
-                ('job', models.TextField(max_length=200)),
-                ('is_done', models.BooleanField(default=False)),
-                ('dead_end', models.DateTimeField()),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('updated', models.DateTimeField(auto_now=True)),
-                ('profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='accounts.profilemodel')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "level",
+                    models.CharField(
+                        choices=[
+                            ("easy", "green"),
+                            ("medium", "amber"),
+                            ("hard", "red"),
+                        ],
+                        default="easy",
+                        max_length=10,
+                    ),
+                ),
+                ("job", models.TextField(max_length=200)),
+                ("is_done", models.BooleanField(default=False)),
+                ("dead_end", models.DateTimeField()),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("updated", models.DateTimeField(auto_now=True)),
+                (
+                    "profile",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="accounts.profilemodel",
+                    ),
+                ),
             ],
         ),
     ]

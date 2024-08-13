@@ -12,22 +12,22 @@ def api_client():
 @pytest.mark.django_db
 class TestRegistration:
 
-    def test_post_response_200(self, api_client):   # good request data
-        url = reverse('accounts:api_v1:user:registration')
+    def test_post_response_200(self, api_client):  # good request data
+        url = reverse("accounts:api_v1:user:registration")
         data = {
-            'email': 'test@gmail.com',
-            'password': 'Aaa123##',
-            'confirm_password': 'Aaa123##'
+            "email": "test@gmail.com",
+            "password": "Aaa123##",
+            "confirm_password": "Aaa123##",
         }
         response = api_client.post(path=url, data=data)
         assert response.status_code == 200
 
-    def test_post_response_400(self, api_client):   # bad request data
-        url = reverse('accounts:api_v1:user:registration')
+    def test_post_response_400(self, api_client):  # bad request data
+        url = reverse("accounts:api_v1:user:registration")
         data = {
-            'email': 'test@gmail.com',
-            'password': 'Aaa123##',
-            'confirm_password': '99999999'
+            "email": "test@gmail.com",
+            "password": "Aaa123##",
+            "confirm_password": "99999999",
         }
         response = api_client.post(path=url, data=data)
         assert response.status_code == 400

@@ -6,13 +6,21 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('todo', '0002_alter_todomodel_level'),
+        ("todo", "0002_alter_todomodel_level"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='todomodel',
-            name='level',
-            field=models.CharField(choices=[('green', 'easy'), ('orange', 'medium'), ('red', 'hard')], default='easy', max_length=10),
+            model_name="todomodel",
+            name="level",
+            field=models.CharField(
+                choices=[
+                    ("green", "easy"),
+                    ("orange", "medium"),
+                    ("red", "hard"),
+                ],
+                default="easy",
+                max_length=10,
+            ),
         ),
     ]

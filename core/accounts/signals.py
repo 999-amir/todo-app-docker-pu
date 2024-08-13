@@ -6,10 +6,10 @@ from django.dispatch import receiver
 @receiver(post_save, sender=CostumeUser)
 def create_profile(sender, **kwargs):
     """
-        this function will create profile after user created
-        """
-    user = kwargs['instance']
-    if kwargs['created']:
+    this function will create profile after user created
+    """
+    user = kwargs["instance"]
+    if kwargs["created"]:
         ProfileModel.objects.create(user=user)
 
 
@@ -18,5 +18,5 @@ def delete_user(sender, **kwargs):
     """
     this function will delete user after Profile deleted
     """
-    profile = kwargs['instance']
+    profile = kwargs["instance"]
     profile.user.delete()
