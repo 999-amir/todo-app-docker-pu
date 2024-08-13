@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--    settings & API-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>:root {
+        color-scheme: dark;
+    }</style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+    <!--    title-->
+    <link rel="todo icon" href="media/img/todo-logo.png">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body class="w-[75%] mx-auto" style="background-image: url({% static 'background/background.jpg' %}); background-size: cover">
+{% block main %}
+{% endblock %}
+{% include 'messages.html' %}
+</body>
+</html>

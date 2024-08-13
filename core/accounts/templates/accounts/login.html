@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}LOGIN{% endblock %}
+{% block main %}
+<main class="flex justify-center items-center h-dvh w-full">
+    <form class="mx-auto w-[25rem] bg-gray-800 p-5 rounded-2xl border-2 border-violet-600" method="post" method="post">{% csrf_token %}
+        <h5 class="mb-2 text-xl font-medium text-gray-200 text-center">LOGIN</h5>
+        {{ forms.as_p }}
+        <a class="text-violet-500 flex justify-center text-sm mb-4 underline hover:text-violet-600" href="{% url 'todo:main_page' %}">return</a>
+        <button class="bg-violet-700 rounded-lg hover:bg-violet-800 p-2 w-full" type="submit">submit</button>
+    </form>
+</main>
+{% endblock %}

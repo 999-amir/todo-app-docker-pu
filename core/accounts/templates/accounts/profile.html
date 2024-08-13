@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}PROFILE{% endblock %}
+{% block main %}
+    <main class="flex justify-center items-center h-dvh w-full">
+
+        {% if profile.f_name and profile.l_name %}
+            <form class="mx-auto w-[25rem] bg-gray-800 p-5 rounded-2xl border-2 border-violet-600" method="post" action="{% url 'accounts:profile_description' %}">{% csrf_token %}
+                <p>F name:</p>
+                <p class="bg-slate-600 p-2 rounded-xl border-1 border-slate-800 text-center mb-4">{{ profile.f_name }}</p>
+                <p>L name:</p>
+                <p class="bg-slate-600 p-2 rounded-xl border-1 border-slate-800 text-center mb-4">{{ profile.l_name }}</p>
+                <label for="id_description">Description:</label>
+                <textarea name="description" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="id_description" placeholder="{{ profile.description }}" required></textarea>
+                <a class="text-violet-500 flex justify-center text-sm mb-4 underline hover:text-violet-600" href="/">return</a>
+                <button class="bg-violet-700 rounded-lg hover:bg-violet-800 p-2 w-full" type="submit">submit</button>
+            </form>
+        {% else %}
+
+
+
+            <form class="mx-auto w-[25rem] bg-gray-800 p-5 rounded-2xl border-2 border-violet-600" method="post">{% csrf_token %}
+                <h5 class="mb-2 text-xl font-medium text-gray-200 text-center">PROFILE</h5>
+                <label for="id_f_name">F name:</label>
+                <input type="text" name="f_name" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="id_f_name" required>
+                <label for="id_l_name">L name:</label>
+                <input type="text" name="l_name" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="id_l_name" required>
+                <label for="id_description">Description:</label>
+                <textarea name="description" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="id_description" placeholder="{{ profile.description }}"></textarea>
+                <a class="text-violet-500 flex justify-center text-sm mb-4 underline hover:text-violet-600" href="/">return</a>
+                <button class="bg-violet-700 rounded-lg hover:bg-violet-800 p-2 w-full" type="submit">submit</button>
+            </form>
+
+
+
+        {% endif %}
+
+    </main>
+{% endblock %}
