@@ -1,4 +1,4 @@
-from .models import ProfileModel
+from .models import ProfileModel, PageSeenModel
 
 
 def profile_information(request):
@@ -8,3 +8,5 @@ def profile_information(request):
         profile = ''
     return {'profile': profile}
 
+def page_seen_number(request):
+    return {'page_seen_number': PageSeenModel.objects.all().count()}

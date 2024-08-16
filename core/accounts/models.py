@@ -42,3 +42,14 @@ class ProfileModel(models.Model):
 
     def __str__(self):
         return f'{self.f_name} - {self.l_name}'
+
+
+class PageSeenModel(models.Model):
+    ip = models.GenericIPAddressField()
+    system = models.CharField(max_length=100)
+    session_key = models.CharField(max_length=250, null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.ip

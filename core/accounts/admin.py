@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CostumeUser, ProfileModel
+from .models import CostumeUser, ProfileModel, PageSeenModel
 from django.contrib.auth.models import Group
 from .forms import CostumeUserCreationForm, CostumeUserChangeForm
 from django.contrib.auth.admin import UserAdmin
@@ -59,3 +59,19 @@ class ProfileAdmin(admin.ModelAdmin):
     ordering = ('l_name', 'user')
     readonly_fields = ('created', 'updated')
     inlines = (TodoInline,)
+
+
+@admin.register(PageSeenModel)
+class PageSeenAdmin(admin.ModelAdmin):
+    list_display = ('ip', 'system', 'created')
+    fieldsets = (
+        (
+            'USER-INFORMATION',
+            {'fields': ('ip', 'system', 'session_key')}
+        ),
+        (
+            'DATE',
+            {'fields': ('updated', 'created')}
+        )
+    )
+    readonly_fields = ('ip', 'system', 'session_key', 'updated', 'created')
